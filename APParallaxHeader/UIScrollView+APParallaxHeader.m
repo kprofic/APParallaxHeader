@@ -158,7 +158,7 @@ static char UIScrollViewParallaxView;
     //// Cleanup
     CGGradientRelease(gradient3);
     CGColorSpaceRelease(colorSpace);
-
+    
 }
 
 @end
@@ -220,19 +220,19 @@ static char UIScrollViewParallaxView;
 
 - (void)scrollViewDidScroll:(CGPoint)contentOffset {
     // We do not want to track when the parallax view is hidden
-//    if (contentOffset.y > 0) {
-//        [self setState:APParallaxTrackingInactive];
-//    } else {
-//        [self setState:APParallaxTrackingActive];
-//    }
+    //    if (contentOffset.y > 0) {
+    //        [self setState:APParallaxTrackingInactive];
+    //    } else {
+    //        [self setState:APParallaxTrackingActive];
+    //    }
     
     if(self.state == APParallaxTrackingActive) {
         CGFloat yOffset = contentOffset.y*-1;
         
         CGFloat y = contentOffset.y;
         CGFloat height = yOffset;
-        if (height < 150) {
-            height = 150;
+        if (height < 96) {
+            height = 96;
         }
         
         [self setFrame:CGRectMake(0, y, CGRectGetWidth(self.frame), height)];
